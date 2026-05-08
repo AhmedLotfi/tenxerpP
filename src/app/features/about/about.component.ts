@@ -68,10 +68,10 @@ const TEAM_COLORS = ['#25255C', '#ED1C3A', '#077765', '#1D1D4A', '#0B163F', '#3A
     <section class="section section--tight stats-strip">
       <div class="container-x">
         <div class="stats-grid" appReveal>
-          <app-stat-counter [value]="2014" [label]="'about.statFounded' | translate" />
-          <app-stat-counter [value]="200" suffix="+" [label]="'about.statEmployees' | translate" />
+          <app-stat-counter [value]="20" suffix="+" [label]="'about.statFounded' | translate" />
+          <app-stat-counter [value]="26" [label]="'about.statEmployees' | translate" />
           <app-stat-counter [value]="1200" suffix="+" [label]="'about.statDeployments' | translate" />
-          <app-stat-counter [value]="24" [label]="'about.statCountries' | translate" />
+          <app-stat-counter [value]="11" [label]="'about.statCountries' | translate" />
         </div>
       </div>
     </section>
@@ -107,7 +107,13 @@ const TEAM_COLORS = ['#25255C', '#ED1C3A', '#077765', '#1D1D4A', '#0B163F', '#3A
         <div class="cta-card" appReveal>
           <h2 class="cta-card__title">{{ 'cta.title' | translate }}</h2>
           <p class="cta-card__sub">{{ 'cta.subtitle' | translate }}</p>
-          <ui-button link="/contact" variant="primary" size="lg" icon="arrow-right">
+          <ui-button
+            href="https://register.tenxerp.com/home/registration"
+            external
+            variant="primary"
+            size="lg"
+            icon="arrow-right"
+          >
             {{ 'cta.primary' | translate }}
           </ui-button>
         </div>

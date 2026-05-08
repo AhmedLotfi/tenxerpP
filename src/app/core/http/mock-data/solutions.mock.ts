@@ -4,6 +4,9 @@ import { Solution } from '../../models/solution.model';
  * Hero illustrations are sourced verbatim from tenxerp.com's Landing-Business assets.
  * Six base illustrations exist; we map each module to the closest semantic match.
  */
+/* HR module uses the actual TenxERP HR person profile image (downloaded from
+ * attachment.tenxerp.com). Other modules use the line-art illustrations. */
+const HR_PERSON = 'images/HrPerson.png';
 const HR = 'images/solutions/HR-Features.png';
 const POWER = 'images/solutions/Powerful-Features.png';
 const CONTRACT = 'images/solutions/Contract-Management.png';
@@ -18,7 +21,7 @@ const HERO: Record<number, string> = {
   4: CONTRACT, // Purchase & Procurement
   5: POWER,    // Manufacturing
   6: FLEET,    // Warehouse Management
-  7: HR,       // HR & Payroll
+  7: HR_PERSON, // HR & Payroll — real HrPerson photo from tenxerp
   8: HR,       // CRM
   9: CONTRACT, // Project Management
   10: FLEET,   // Asset Management

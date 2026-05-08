@@ -18,14 +18,14 @@
     "closeMenu": "Close menu"
   },
   "hero": {
-    "eyebrow": "ERP, reimagined",
-    "title": "One platform. Every part of your business.",
-    "subtitle": "TenxERP brings finance, inventory, HR, manufacturing, sales and 20+ modules into a single, considered system — designed for clarity, built for scale.",
+    "eyebrow": "AI-Driven Business Solutions",
+    "title": "Smarter Business — every part of it, on one platform.",
+    "subtitle": "We're a leading cloud-based ERP based in Canada, with 20+ years transforming diverse industries across the Gulf, especially UAE — with ready-made tools to streamline operations and boost productivity.",
     "cta": "Explore solutions",
     "ctaSecondary": "Book a demo",
     "stat1": "26 modules",
     "stat2": "11 industries",
-    "stat3": "100% web-based"
+    "stat3": "Cloud-based"
   },
   "valueProps": {
     "eyebrow": "Why TenxERP",
@@ -74,7 +74,7 @@
   },
   "testimonials": {
     "eyebrow": "Customer voices",
-    "title": "What teams say after a year on TenxERP."
+    "title": "What our customers say about us"
   },
   "cta": {
     "title": "Ready to see your operations on one screen?",
@@ -84,20 +84,20 @@
   },
   "about": {
     "eyebrow": "About Tenx IT Solutions",
-    "title": "Software made for the way real companies run.",
-    "lead": "We are Tenx IT Solutions — a team of engineers, accountants, supply-chain veterans and product designers who believed enterprise software didn't have to feel like enterprise software.",
+    "title": "AI-driven business solutions — built for the Gulf, serving the world.",
+    "lead": "We're a leading cloud-based ERP based in Canada, with 20+ years transforming diverse industries across the Gulf, especially UAE — with ready-made tools to streamline operations and boost productivity.",
     "missionTitle": "Mission",
-    "missionBody": "To bring clarity to the operations of every business we work with — through software that's powerful enough to handle the edge cases and graceful enough to be a pleasure to use.",
+    "missionBody": "To deliver AI-driven, cloud-based business solutions that empower companies of every size to streamline operations, boost productivity and grow with confidence.",
     "visionTitle": "Vision",
-    "visionBody": "A future where every business — from a 12-person workshop to a 12,000-person enterprise — runs on the same caliber of software.",
-    "story": "Founded in 2014, TenxERP started as a single payroll module built for a manufacturer who'd outgrown spreadsheets. Eleven years later we're a full ERP platform deployed across 24 countries — but every line of code still answers to the same question: does this make a real person's day better?",
+    "visionBody": "To be the most trusted ERP partner in the Gulf and beyond — known for ready-made depth, regional expertise and software that respects the people who use it every day.",
+    "story": "Tenx IT Solutions has been transforming the way businesses run for over two decades. Headquartered in Canada with deep roots in the Gulf, our platform — TenxERP — brings together finance, HR, inventory, manufacturing, sales, CRM and more into a single integrated system. From property management companies to municipalities, charities to retailers, our customers rely on us to handle their operations from A to Z.",
     "storyEyebrow": "Our story",
     "teamTitle": "The people building it",
     "teamSubtitle": "Engineers, designers and operators who care about how work actually feels.",
-    "statFounded": "Founded",
-    "statEmployees": "Employees worldwide",
+    "statFounded": "Years of experience",
+    "statEmployees": "Modules shipping",
     "statDeployments": "Active deployments",
-    "statCountries": "Countries served"
+    "statCountries": "Industries served"
   },
   "contact": {
     "eyebrow": "Talk to us",
@@ -123,13 +123,14 @@
     },
     "info": {
       "address": "Address",
-      "addressValue": "Office #303, Tech Hub, Shahrah-e-Faisal, Karachi, Pakistan",
+      "addressValue": "Tenx IT-Solution, City Bay Business Center, Abu Hail, Dubai, UAE",
       "phone": "Phone",
-      "phoneValue": "+92 21 3456 7890",
+      "phoneValue": "+971 4 282 5197",
+      "phoneAlt": "+971 4 452 4434",
       "email": "Email",
-      "emailValue": "hello@tenxerp.com",
+      "emailValue": "sales@compassint.org",
       "hours": "Hours",
-      "hoursValue": "Mon–Fri, 9:00–18:00 PKT"
+      "hoursValue": "Sun–Thu, 9:00–18:00 GST"
     }
   },
   "faqs": {
@@ -160,7 +161,7 @@
     "perSeat": "per seat / month"
   },
   "footer": {
-    "tagline": "Enterprise resource planning, refined.",
+    "tagline": "AI-Driven Business Solutions — cloud-based ERP for the Gulf and beyond.",
     "navigate": "Navigate",
     "solutions": "Solutions",
     "modules": "Modules",
@@ -186,7 +187,7 @@
     "stat3Lbl": "Uptime",
     "stat4Lbl": "Founded",
     "since": "Smarter Business since 2014",
-    "addrCity": "Karachi, Pakistan"
+    "addrCity": "Dubai, UAE"
   },
   "solutionDetail": {
     "overview": "Overview",

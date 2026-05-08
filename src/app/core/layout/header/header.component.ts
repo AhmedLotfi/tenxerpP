@@ -42,7 +42,14 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
             <span class="hdr__lang-label">{{ 'lang.switchTo' | translate }}</span>
           </button>
 
-          <ui-button class="hdr__cta" link="/contact" variant="primary" size="sm" icon="arrow-right">
+          <ui-button
+            class="hdr__cta"
+            href="https://register.tenxerp.com/home/registration"
+            external
+            variant="primary"
+            size="sm"
+            icon="arrow-right"
+          >
             {{ 'nav.getStarted' | translate }}
           </ui-button>
 

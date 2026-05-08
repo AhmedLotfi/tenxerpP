@@ -44,7 +44,13 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
                   <ui-button link="/contact" variant="primary" size="lg" icon="arrow-right">
                     {{ 'solutionDetail.requestQuote' | translate }}
                   </ui-button>
-                  <ui-button link="/contact" variant="ghost" size="lg" icon="arrow-up-right">
+                  <ui-button
+                    href="https://register.tenxerp.com/home/registration"
+                    external
+                    variant="ghost"
+                    size="lg"
+                    icon="arrow-up-right"
+                  >
                     {{ 'solutionDetail.bookDemo' | translate }}
                   </ui-button>
                 </div>

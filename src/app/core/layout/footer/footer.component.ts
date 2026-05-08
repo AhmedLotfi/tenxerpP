@@ -104,14 +104,29 @@ import { IconComponent } from '../../../shared/icon/icon.component';
           <a routerLink="/privacy-policy" fragment="terms" class="ftr__bottom-link">{{ 'footer.terms' | translate }}</a>
           <a routerLink="/privacy-policy" fragment="cookies" class="ftr__bottom-link">{{ 'footer.cookies' | translate }}</a>
           <span class="ftr__social" aria-label="Social">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <app-icon name="twitter" [size]="15" />
+            <a
+              href="https://www.youtube.com/@tenxerp"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <app-icon name="youtube" [size]="15" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a
+              href="https://www.linkedin.com/company/tenx-it-solutions"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
               <app-icon name="linkedin" [size]="15" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <app-icon name="github" [size]="15" />
+            <a
+              href="https://twitter.com/tenxerp"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter / X"
+            >
+              <app-icon name="twitter" [size]="15" />
             </a>
           </span>
         </div>
