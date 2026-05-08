@@ -1,0 +1,17 @@
+{
+  "name": "TenxERP",
+  "short_name": "TenxERP",
+  "description": "Modern modular ERP — finance, inventory, HR, manufacturing, CRM and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0E2A47",
+  "background_color": "#F8FAFC",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+@import './styles/tokens.css';
+@import './styles/base.css';
+@import './styles/utilities.css';
+@import './styles/rtl.css';
+
+@source "./**/*.{html,ts}";
+@source "../**/*.html";
+
+/* Map design tokens to Tailwind theme so utilities like bg-navy text-amber resolve to CSS vars */
+@theme inline {
+  --color-navy: var(--color-navy);
+  --color-navy-2: var(--color-navy-2);
+  --color-navy-soft: var(--color-navy-soft);
+  --color-amber: var(--color-amber);
+  --color-amber-2: var(--color-amber-2);
+  --color-amber-soft: var(--color-amber-soft);
+  --color-cyan: var(--color-cyan);
+  --color-cyan-soft: var(--color-cyan-soft);
+
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-2: var(--color-surface-2);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-muted: var(--color-muted);
+  --color-text: var(--color-text);
+  --color-text-soft: var(--color-text-soft);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+}

@@ -1,0 +1,204 @@
+<!-- HERO -->
+<section class="hero mesh-hero grain">
+  <div class="container-x">
+    <div class="hero-enter">
+      <span class="hero__eyebrow eyebrow">{{ 'hero.eyebrow' | translate }}</span>
+      <h1 class="hero__title">{{ 'hero.title' | translate }}</h1>
+      <p class="hero__sub lead">{{ 'hero.subtitle' | translate }}</p>
+      <div class="hero__cta">
+        <ui-button link="/" variant="primary" size="lg" icon="arrow-right">
+          {{ 'hero.cta' | translate }}
+        </ui-button>
+        <ui-button link="/contact" variant="ghost" size="lg" icon="arrow-up-right">
+          {{ 'hero.ctaSecondary' | translate }}
+        </ui-button>
+      </div>
+      <div class="hero__pills">
+        <span class="hero__pill"><app-icon name="check" [size]="14" /> {{ 'hero.stat1' | translate }}</span>
+        <span class="hero__pill"><app-icon name="check" [size]="14" /> {{ 'hero.stat2' | translate }}</span>
+        <span class="hero__pill"><app-icon name="check" [size]="14" /> {{ 'hero.stat3' | translate }}</span>
+      </div>
+    </div>
+
+    <!-- Editorial KPI strip -->
+    <div class="hero__strip" appReveal>
+      <div class="hero__strip-item">
+        <div class="display-number hero__strip-num">1.2K<span class="hero__strip-suf">+</span></div>
+        <div class="hero__strip-lbl">deployments</div>
+      </div>
+      <div class="hero__strip-item">
+        <div class="display-number hero__strip-num">26</div>
+        <div class="hero__strip-lbl">modules shipping</div>
+      </div>
+      <div class="hero__strip-item">
+        <div class="display-number hero__strip-num">99.99<span class="hero__strip-suf">%</span></div>
+        <div class="hero__strip-lbl">platform uptime</div>
+      </div>
+      <div class="hero__strip-item">
+        <div class="display-number hero__strip-num">24</div>
+        <div class="hero__strip-lbl">countries served</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section class="section section--tight">
+  <div class="container-x">
+    <header class="section-head" appReveal>
+      <app-section-eyebrow [label]="'valueProps.eyebrow' | translate" [index]="1" />
+      <h2 class="section-head__title">{{ 'valueProps.title' | translate }}</h2>
+    </header>
+
+    <div class="vp-grid reveal-stagger" appReveal>
+      @for (vp of valueProps; track vp.key) {
+        <article class="vp">
+          <div class="vp__icon">
+            <app-icon [name]="vp.icon" [size]="22" />
+          </div>
+          <h3 class="vp__title">{{ 'valueProps.items.' + vp.key + '.title' | translate }}</h3>
+          <p class="vp__body">{{ 'valueProps.items.' + vp.key + '.body' | translate }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions" class="section grid-backdrop">
+  <div class="container-x">
+    <header class="section-head section-head--with-tabs" appReveal>
+      <div>
+        <app-section-eyebrow [label]="'solutions.eyebrow' | translate" [index]="2" />
+        <h2 class="section-head__title">{{ 'solutions.title' | translate }}</h2>
+        <p class="section-head__sub lead">{{ 'solutions.subtitle' | translate }}</p>
+      </div>
+
+      <div class="tabs" role="tablist" [attr.aria-label]="'solutions.title' | translate">
+        <button
+          class="tab"
+          role="tab"
+          [attr.aria-selected]="filter() === 'all'"
+          [class.is-active]="filter() === 'all'"
+          (click)="setFilter('all')"
+        >
+          All ({{ solutions().length }})
+        </button>
+        <button
+          class="tab"
+          role="tab"
+          [attr.aria-selected]="filter() === 'module'"
+          [class.is-active]="filter() === 'module'"
+          (click)="setFilter('module')"
+        >
+          {{ 'solutions.tabModules' | translate }}
+        </button>
+        <button
+          class="tab"
+          role="tab"
+          [attr.aria-selected]="filter() === 'industry'"
+          [class.is-active]="filter() === 'industry'"
+          (click)="setFilter('industry')"
+        >
+          {{ 'solutions.tabIndustries' | translate }}
+        </button>
+      </div>
+    </header>
+
+    <div class="sol-grid reveal-stagger" appReveal>
+      @for (s of filteredSolutions(); track trackSol($index, s)) {
+        <app-solution-card [solution]="s" />
+      }
+    </div>
+
+    <div class="sol-cta" appReveal>
+      <ui-button link="/Home/Solutioninner/1" variant="navy" size="md" icon="arrow-right">
+        {{ 'solutions.viewAll' | translate }}
+      </ui-button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section stats-section">
+  <div class="container-x">
+    <header class="section-head" appReveal>
+      <app-section-eyebrow [label]="'stats.eyebrow' | translate" [index]="3" />
+      <h2 class="section-head__title">{{ 'stats.title' | translate }}</h2>
+    </header>
+
+    <div class="stats-grid reveal-stagger" appReveal>
+      <app-stat-counter
+        [value]="1200"
+        suffix="+"
+        [label]="'stats.items.clients.label' | translate"
+      />
+      <app-stat-counter
+        [value]="180"
+        suffix="M"
+        [label]="'stats.items.transactions.label' | translate"
+      />
+      <app-stat-counter
+        [value]="99.99"
+        suffix="%"
+        [decimals]="2"
+        [label]="'stats.items.uptime.label' | translate"
+      />
+      <app-stat-counter
+        [value]="24"
+        [label]="'stats.items.countries.label' | translate"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="section section--tight clients-section">
+  <div class="container-x clients-section__head" appReveal>
+    <app-section-eyebrow [label]="'clients.eyebrow' | translate" [index]="4" />
+    <h2 class="section-head__title section-head__title--sm">{{ 'clients.title' | translate }}</h2>
+  </div>
+  <div class="clients-section__marquee">
+    <app-client-marquee [clients]="clients()" />
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container-x">
+    <header class="section-head" appReveal>
+      <app-section-eyebrow [label]="'testimonials.eyebrow' | translate" [index]="5" />
+      <h2 class="section-head__title">{{ 'testimonials.title' | translate }}</h2>
+    </header>
+
+    <div class="testimonial-grid reveal-stagger" appReveal>
+      @for (t of testimonials(); track trackTest($index, t)) {
+        <app-testimonial-card [testimonial]="t" />
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="section">
+  <div class="container-x">
+    <div class="cta-banner grain" appReveal>
+      <div class="cta-banner__bg" aria-hidden="true"></div>
+      <div class="cta-banner__inner">
+        <div>
+          <span class="eyebrow cta-banner__eyebrow">{{ 'brand.tagline' | translate }}</span>
+          <h2 class="cta-banner__title">{{ 'cta.title' | translate }}</h2>
+          <p class="cta-banner__sub">{{ 'cta.subtitle' | translate }}</p>
+        </div>
+        <div class="cta-banner__actions">
+          <ui-button link="/contact" variant="primary" size="lg" icon="arrow-right">
+            {{ 'cta.primary' | translate }}
+          </ui-button>
+          <ui-button link="/contact" variant="text" size="lg" icon="arrow-up-right">
+            {{ 'cta.secondary' | translate }}
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

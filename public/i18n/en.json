@@ -1,0 +1,191 @@
+{
+  "brand": {
+    "name": "TenxERP",
+    "tagline": "Enterprise resource planning, refined.",
+    "by": "by Tenx IT Solutions"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "faqs": "FAQs",
+    "contact": "Contact",
+    "cart": "Cart",
+    "getStarted": "Get started",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "ERP, reimagined",
+    "title": "One platform. Every part of your business.",
+    "subtitle": "TenxERP brings finance, inventory, HR, manufacturing, sales and 20+ modules into a single, considered system — designed for clarity, built for scale.",
+    "cta": "Explore solutions",
+    "ctaSecondary": "Book a demo",
+    "stat1": "26 modules",
+    "stat2": "11 industries",
+    "stat3": "100% web-based"
+  },
+  "valueProps": {
+    "eyebrow": "Why TenxERP",
+    "title": "Built around the way modern businesses actually run.",
+    "items": {
+      "modular": {
+        "title": "Truly modular",
+        "body": "Buy only what you need. Activate more as you grow. Every module talks to every other one — no integration tax."
+      },
+      "realtime": {
+        "title": "Real-time everywhere",
+        "body": "Stock levels, payroll runs, purchase orders, customer history — every dashboard reflects the latest state of your business."
+      },
+      "compliant": {
+        "title": "Compliance, handled",
+        "body": "Localised tax, payroll, and reporting rules ship in the box. Audit trails on every transaction. Your finance team will breathe easier."
+      },
+      "extend": {
+        "title": "Extend without breaking",
+        "body": "REST + webhook surface for everything. Bring your own BI, build your own forms. Nothing is locked behind an upgrade tier."
+      }
+    }
+  },
+  "solutions": {
+    "eyebrow": "The platform",
+    "title": "26 modules. One system.",
+    "subtitle": "From finance to manufacturing to industry-specific verticals — TenxERP covers the entire enterprise surface.",
+    "tabModules": "Modules",
+    "tabIndustries": "Industries",
+    "viewAll": "View all solutions",
+    "learnMore": "Learn more"
+  },
+  "stats": {
+    "eyebrow": "By the numbers",
+    "title": "Trusted by businesses that take operations seriously.",
+    "items": {
+      "clients": { "value": "1,200+", "label": "Active deployments" },
+      "transactions": { "value": "180M", "label": "Transactions processed" },
+      "uptime": { "value": "99.99%", "label": "Platform uptime" },
+      "countries": { "value": "24", "label": "Countries served" }
+    }
+  },
+  "clients": {
+    "eyebrow": "In good company",
+    "title": "Powering operations across industries"
+  },
+  "testimonials": {
+    "eyebrow": "Customer voices",
+    "title": "What teams say after a year on TenxERP."
+  },
+  "cta": {
+    "title": "Ready to see your operations on one screen?",
+    "subtitle": "Book a 30-minute walkthrough — we'll spin up a sandbox seeded with your industry's data.",
+    "primary": "Book a demo",
+    "secondary": "Talk to sales"
+  },
+  "about": {
+    "eyebrow": "About TenxERP",
+    "title": "Software made for the way real companies run.",
+    "lead": "We are Tenx IT Solutions — a team of engineers, accountants, supply-chain veterans and product designers who believed enterprise software didn't have to feel like enterprise software.",
+    "missionTitle": "Mission",
+    "missionBody": "To bring clarity to the operations of every business we work with — through software that's powerful enough to handle the edge cases and graceful enough to be a pleasure to use.",
+    "visionTitle": "Vision",
+    "visionBody": "A future where every business — from a 12-person workshop to a 12,000-person enterprise — runs on the same caliber of software.",
+    "story": "Founded in 2014, TenxERP started as a single payroll module built for a manufacturer who'd outgrown spreadsheets. Eleven years later we're a full ERP platform deployed across 24 countries — but every line of code still answers to the same question: does this make a real person's day better?",
+    "teamTitle": "The people building it",
+    "teamSubtitle": "Engineers, designers and operators who care about how work actually feels."
+  },
+  "contact": {
+    "eyebrow": "Talk to us",
+    "title": "Tell us what you're trying to fix.",
+    "lead": "Whether you're evaluating, migrating, or scaling — we'd love to hear from you. Average response time is under four hours during business days.",
+    "form": {
+      "name": "Full name",
+      "email": "Work email",
+      "company": "Company",
+      "phone": "Phone (optional)",
+      "interest": "I'm interested in",
+      "interestOptions": {
+        "demo": "A live demo",
+        "pricing": "Pricing & plans",
+        "migration": "Migrating from another ERP",
+        "partnership": "Partnership / reseller"
+      },
+      "message": "What are you trying to solve?",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "success": "Message sent. We'll be in touch within four hours.",
+      "error": "Something went wrong. Please try again or email us directly."
+    },
+    "info": {
+      "address": "Address",
+      "addressValue": "Office #303, Tech Hub, Shahrah-e-Faisal, Karachi, Pakistan",
+      "phone": "Phone",
+      "phoneValue": "+92 21 3456 7890",
+      "email": "Email",
+      "emailValue": "hello@tenxerp.com",
+      "hours": "Hours",
+      "hoursValue": "Mon–Fri, 9:00–18:00 PKT"
+    }
+  },
+  "faqs": {
+    "eyebrow": "Questions, answered",
+    "title": "Frequently asked",
+    "subtitle": "Don't see yours? Reach us at hello@tenxerp.com — we usually reply the same day."
+  },
+  "privacy": {
+    "eyebrow": "Legal",
+    "title": "Privacy policy",
+    "lastUpdated": "Last updated"
+  },
+  "cart": {
+    "eyebrow": "Your selection",
+    "title": "Selected modules",
+    "empty": "Your cart is empty.",
+    "emptyHint": "Pick a few modules from the Solutions page to build a tailored ERP package.",
+    "browse": "Browse solutions",
+    "module": "Module",
+    "type": "Type",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "discount": "Bundle discount",
+    "total": "Estimated total",
+    "checkout": "Request quote",
+    "checkoutSubmitting": "Submitting…",
+    "checkoutSuccess": "Quote request received. Our team will email you within four business hours.",
+    "perSeat": "per seat / month"
+  },
+  "footer": {
+    "tagline": "Enterprise resource planning, refined.",
+    "navigate": "Navigate",
+    "solutions": "Solutions",
+    "company": "Company",
+    "legal": "Legal",
+    "newsletter": "Stay in the loop",
+    "newsletterHint": "Quarterly product notes. No spam, ever.",
+    "subscribe": "Subscribe",
+    "subscribed": "You're subscribed. Talk soon.",
+    "rights": "All rights reserved.",
+    "privacyPolicy": "Privacy policy",
+    "terms": "Terms",
+    "cookies": "Cookies"
+  },
+  "lang": {
+    "switchTo": "العربية",
+    "label": "Language"
+  },
+  "common": {
+    "category": {
+      "module": "Module",
+      "industry": "Industry"
+    },
+    "back": "Back",
+    "addToCart": "Add to cart",
+    "inCart": "In cart",
+    "exploreMore": "Explore more solutions",
+    "relatedSolutions": "Related solutions"
+  },
+  "notFound": {
+    "title": "We couldn't find that page.",
+    "subtitle": "The link may be outdated, or the page may have moved.",
+    "home": "Back to home"
+  }
+}

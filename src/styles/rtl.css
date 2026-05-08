@@ -1,0 +1,11 @@
+/* RTL adjustments — most direction handling uses Tailwind logical properties.
+   Add fixes here only when something hard-codes physical sides. */
+
+html[dir='rtl'] .flip-rtl {
+  transform: scaleX(-1);
+}
+
+/* Ensure marquee animation reverses cleanly in RTL */
+html[dir='rtl'] .marquee {
+  animation-direction: reverse;
+}
