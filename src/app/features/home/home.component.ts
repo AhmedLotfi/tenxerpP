@@ -55,6 +55,12 @@ export class HomeComponent implements OnInit {
 
   readonly filter = signal<SolFilter>('all');
 
+  readonly isVideoPlaying = signal<boolean>(false);
+
+  playVideo(): void {
+    this.isVideoPlaying.set(true);
+  }
+
   readonly filteredSolutions = computed(() => {
     const f = this.filter();
     const all = this.solutions();

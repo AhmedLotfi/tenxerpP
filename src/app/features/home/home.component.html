@@ -72,6 +72,37 @@
   </div>
 </section>
 
+<!-- VIDEO -->
+<section class="section section--tight video-section" appReveal>
+  <div class="container-x">
+    <div class="video" [class.is-playing]="isVideoPlaying()">
+      @if (!isVideoPlaying()) {
+        <button
+          type="button"
+          class="video__play"
+          (click)="playVideo()"
+          aria-label="Play product walkthrough"
+        >
+          <span class="video__play-ring" aria-hidden="true"></span>
+          <span class="video__play-btn" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span class="video__play-label">Watch the 2-minute walkthrough</span>
+        </button>
+      } @else {
+        <video
+          class="video__player"
+          src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          poster="images/video_cover.png"
+          controls
+          autoplay
+          playsinline
+        ></video>
+      }
+    </div>
+  </div>
+</section>
+
 <!-- SOLUTIONS -->
 <section id="solutions" class="section grid-backdrop">
   <div class="container-x">

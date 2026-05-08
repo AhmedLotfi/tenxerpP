@@ -1,13 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit, computed, inject, signal } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { Solution } from '../../core/models/solution.model';
 import { SolutionsService } from '../../core/services/solutions.service';
 import { SeoService } from '../../core/services/seo.service';
-import { CartService } from '../../core/services/cart.service';
-import { ToastService } from '../../core/services/toast.service';
 
 import { SolutionCardComponent } from '../../shared/components/solution-card/solution-card.component';
 import { UiButtonComponent } from '../../shared/components/ui-button/ui-button.component';
@@ -43,15 +41,9 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
                 <h1 class="detail-hero__title">{{ s.title }}</h1>
                 <p class="lead detail-hero__sub">{{ s.tagline }}</p>
                 <div class="detail-hero__cta">
-                  @if (inCart()) {
-                    <ui-button link="/Home/Cart" variant="navy" size="lg" icon="shopping-cart" iconPosition="start">
-                      {{ 'common.inCart' | translate }}
-                    </ui-button>
-                  } @else {
-                    <ui-button variant="primary" size="lg" icon="plus" iconPosition="start" (click)="addToCart()">
-                      <ng-container>{{ 'common.addToCart' | translate }} · &dollar;{{ s.pricePerSeat }} {{ 'cart.perSeat' | translate }}</ng-container>
-                    </ui-button>
-                  }
+                  <ui-button link="/contact" variant="primary" size="lg" icon="arrow-right">
+                    Request a quote
+                  </ui-button>
                   <ui-button link="/contact" variant="ghost" size="lg" icon="arrow-up-right">
                     Book a demo
                   </ui-button>
@@ -391,21 +383,12 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
 })
 export class SolutionDetailComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
   private readonly solutionsService = inject(SolutionsService);
-  private readonly cart = inject(CartService);
   private readonly seo = inject(SeoService);
-  private readonly toast = inject(ToastService);
-  private readonly translate = inject(TranslateService);
 
   readonly solution = signal<Solution | null>(null);
   readonly all = signal<Solution[]>([]);
   readonly notFound = signal<boolean>(false);
-
-  readonly inCart = computed(() => {
-    const s = this.solution();
-    return s ? this.cart.has(s.id) : false;
-  });
 
   readonly related = computed(() => {
     const s = this.solution();
@@ -442,13 +425,6 @@ export class SolutionDetailComponent implements OnInit {
         },
       });
     });
-  }
-
-  addToCart(): void {
-    const s = this.solution();
-    if (!s) return;
-    this.cart.add(s, 5);
-    this.translate.get('common.addToCart').subscribe((msg) => this.toast.success(`${s.title} → ${msg}`));
   }
 
   pad(n: number): string {

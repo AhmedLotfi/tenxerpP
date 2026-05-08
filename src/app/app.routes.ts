@@ -37,10 +37,6 @@ export const routes: Routes = [
           ),
       },
       {
-        path: 'Home/Cart',
-        loadComponent: () => import('./features/cart/cart.component').then((m) => m.CartComponent),
-      },
-      {
         path: '**',
         loadComponent: () =>
           import('./features/not-found/not-found.component').then((m) => m.NotFoundComponent),

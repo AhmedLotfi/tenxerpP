@@ -52,7 +52,6 @@ import { IconComponent } from '../../../shared/icon/icon.component';
           <a routerLink="/about" class="ftr__link">{{ 'nav.about' | translate }}</a>
           <a routerLink="/faqs" class="ftr__link">{{ 'nav.faqs' | translate }}</a>
           <a routerLink="/contact" class="ftr__link">{{ 'nav.contact' | translate }}</a>
-          <a routerLink="/Home/Cart" class="ftr__link">{{ 'nav.cart' | translate }}</a>
         </div>
 
         <div class="ftr__col">
