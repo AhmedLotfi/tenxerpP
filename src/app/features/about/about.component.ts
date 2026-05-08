@@ -9,6 +9,8 @@ import { StatCounterComponent } from '../../shared/components/stat-counter/stat-
 import { UiButtonComponent } from '../../shared/components/ui-button/ui-button.component';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
 
+const TEAM_COLORS = ['#25255C', '#ED1C3A', '#077765', '#1D1D4A', '#0B163F', '#3A3A78'];
+
 @Component({
   selector: 'app-about',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -318,8 +320,6 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
     `,
   ],
 })
-const TEAM_COLORS = ['#25255C', '#ED1C3A', '#077765', '#1D1D4A', '#0B163F', '#3A3A78'];
-
 export class AboutComponent implements OnInit {
   private readonly teamService = inject(TeamService);
   private readonly seo = inject(SeoService);
