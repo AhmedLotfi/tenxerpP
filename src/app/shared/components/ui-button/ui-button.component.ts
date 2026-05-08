@@ -10,6 +10,10 @@ export type UiButtonSize = 'sm' | 'md' | 'lg';
   selector: 'ui-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, IconComponent, NgTemplateOutlet],
+  host: {
+    '[attr.data-variant]': 'variant()',
+    '[attr.data-size]': 'size()',
+  },
   template: `
     <ng-template #inner>
       @if (loading()) {
