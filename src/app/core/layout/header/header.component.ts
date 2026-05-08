@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, HostListener, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { CartService } from '../../services/cart.service';
 import { LangService } from '../../i18n/lang.service';
 import { IconComponent } from '../../../shared/icon/icon.component';
 import { UiButtonComponent } from '../../../shared/components/ui-button/ui-button.component';
@@ -67,13 +66,7 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
           <a class="hdr__drawer-link" routerLink="/" fragment="solutions" (click)="closeMenu()">{{ 'nav.solutions' | translate }}</a>
           <a class="hdr__drawer-link" routerLink="/faqs" (click)="closeMenu()">{{ 'nav.faqs' | translate }}</a>
           <a class="hdr__drawer-link" routerLink="/contact" (click)="closeMenu()">{{ 'nav.contact' | translate }}</a>
-          <a class="hdr__drawer-link" routerLink="/Home/Cart" (click)="closeMenu()">
-            {{ 'nav.cart' | translate }}
-            @if (cartCount() > 0) {
-              <span class="hdr__drawer-badge">{{ cartCount() }}</span>
-            }
-          </a>
-          <button class="hdr__drawer-link" (click)="toggleLang(); closeMenu()">
+          <button type="button" class="hdr__drawer-link" (click)="toggleLang(); closeMenu()">
             {{ 'lang.label' | translate }} — {{ 'lang.switchTo' | translate }}
           </button>
         </nav>
@@ -155,8 +148,10 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
         justify-content: center;
       }
       .hdr__link {
-        font-size: 14.5px;
+        font-family: var(--font-display);
+        font-size: 15px;
         font-weight: 500;
+        letter-spacing: -0.01em;
         color: var(--color-text-soft);
         transition: color var(--duration-base) var(--ease-out);
         padding-block: 4px;
@@ -244,8 +239,10 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
       }
       .hdr__drawer-link {
         padding: 16px 12px;
-        font-size: 16px;
-        font-weight: 500;
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: -0.015em;
         color: var(--color-navy);
         border-bottom: 1px solid var(--color-border);
         text-align: start;
@@ -292,10 +289,8 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
   ],
 })
 export class HeaderComponent {
-  private readonly cart = inject(CartService);
   private readonly langService = inject(LangService);
 
-  protected readonly cartCount = this.cart.count;
   protected readonly scrolled = signal<boolean>(false);
   protected readonly menuOpen = signal<boolean>(false);
 
