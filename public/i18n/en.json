@@ -1,8 +1,9 @@
 {
   "brand": {
-    "name": "TenxERP",
-    "tagline": "Enterprise resource planning, refined.",
-    "by": "by Tenx IT Solutions"
+    "name": "Tenx IT Solutions",
+    "product": "TenxERP",
+    "tagline": "Smarter Business — enterprise resource planning, refined.",
+    "by": "Tenx IT Solutions"
   },
   "nav": {
     "home": "Home",

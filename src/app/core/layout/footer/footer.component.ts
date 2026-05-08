@@ -99,9 +99,9 @@ import { IconComponent } from '../../../shared/icon/icon.component';
         position: relative;
         isolation: isolate;
         background:
-          linear-gradient(135deg, rgba(11, 22, 63, 0.96) 0%, rgba(37, 37, 92, 0.92) 100%),
+          linear-gradient(135deg, rgba(11, 22, 63, 0.78) 0%, rgba(37, 37, 92, 0.65) 60%, rgba(11, 22, 63, 0.78) 100%),
           url('/images/footer-tenx-bg.png') no-repeat center center / cover;
-        color: rgba(255, 255, 255, 0.78);
+        color: rgba(255, 255, 255, 0.82);
         padding-top: 96px;
         padding-bottom: 24px;
         margin-top: 64px;
@@ -113,8 +113,8 @@ import { IconComponent } from '../../../shared/icon/icon.component';
         inset: 0;
         z-index: -1;
         background:
-          radial-gradient(closest-side at 90% 10%, rgba(237, 28, 58, 0.22), transparent 50%),
-          radial-gradient(closest-side at 5% 95%, rgba(7, 119, 101, 0.18), transparent 60%);
+          radial-gradient(closest-side at 90% 10%, rgba(237, 28, 58, 0.18), transparent 55%),
+          radial-gradient(closest-side at 5% 95%, rgba(7, 119, 101, 0.14), transparent 60%);
         pointer-events: none;
       }
       .ftr__top {

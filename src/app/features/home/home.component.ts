@@ -64,8 +64,8 @@ export class HomeComponent implements OnInit {
   readonly filteredSolutions = computed(() => {
     const f = this.filter();
     const all = this.solutions();
-    if (f === 'all') return all.slice(0, 9);
-    return all.filter((s) => s.category === f).slice(0, 9);
+    if (f === 'all') return all.slice(0, 12);
+    return all.filter((s) => s.category === f).slice(0, 12);
   });
 
   readonly valueProps = [
@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.translate.get(['hero.title', 'hero.subtitle']).subscribe((vals: Record<string, string>) => {
       this.seo.set({
-        title: 'TenxERP — Enterprise Resource Planning, refined',
+        title: 'Tenx IT Solutions | TenxERP — Smarter Business',
         description: vals['hero.subtitle'],
       });
     });

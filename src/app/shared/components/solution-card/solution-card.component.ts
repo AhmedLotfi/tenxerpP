@@ -14,26 +14,38 @@ import { IconComponent } from '../../icon/icon.component';
       [routerLink]="['/Home/Solutioninner', solution().id]"
       [attr.aria-label]="solution().title"
     >
-      <div class="sol-card__head">
-        <span class="sol-card__icon">
-          <app-icon [name]="solution().iconKey" [size]="22" />
-        </span>
-        <span class="sol-card__cat">
-          {{ 'common.category.' + solution().category | translate }}
-        </span>
+      <div class="sol-card__media">
+        <img
+          [src]="solution().heroImage"
+          [alt]="solution().title + ' illustration'"
+          loading="lazy"
+          width="200"
+          height="200"
+        />
         <span class="sol-card__num">No.{{ pad(solution().id) }}</span>
       </div>
 
-      <h3 class="sol-card__title">{{ solution().title }}</h3>
-      <p class="sol-card__tagline">{{ solution().tagline }}</p>
+      <div class="sol-card__body">
+        <div class="sol-card__head">
+          <span class="sol-card__icon">
+            <app-icon [name]="solution().iconKey" [size]="18" />
+          </span>
+          <span class="sol-card__cat">
+            {{ 'common.category.' + solution().category | translate }}
+          </span>
+        </div>
 
-      <div class="sol-card__foot">
-        <span class="underline-grow">
-          {{ 'solutions.learnMore' | translate }}
-        </span>
-        <span class="sol-card__arrow" aria-hidden="true">
-          <app-icon name="arrow-up-right" [size]="16" />
-        </span>
+        <h3 class="sol-card__title">{{ solution().title }}</h3>
+        <p class="sol-card__tagline">{{ solution().tagline }}</p>
+
+        <div class="sol-card__foot">
+          <span class="underline-grow">
+            {{ 'solutions.learnMore' | translate }}
+          </span>
+          <span class="sol-card__arrow" aria-hidden="true">
+            <app-icon name="arrow-up-right" [size]="14" />
+          </span>
+        </div>
       </div>
     </a>
   `,
@@ -46,8 +58,6 @@ import { IconComponent } from '../../icon/icon.component';
         display: flex;
         flex-direction: column;
         height: 100%;
-        gap: 14px;
-        padding: 28px 26px 24px;
         background: var(--color-surface);
         border: 1px solid var(--color-border);
         border-radius: var(--radius-xl);
@@ -72,6 +82,7 @@ import { IconComponent } from '../../icon/icon.component';
         transform: scaleX(0);
         transform-origin: left center;
         transition: transform var(--duration-base) var(--ease-out);
+        z-index: 2;
       }
       html[dir='rtl'] .sol-card::before {
         transform-origin: right center;
@@ -88,6 +99,64 @@ import { IconComponent } from '../../icon/icon.component';
         transform: scaleX(1);
       }
 
+      .sol-card__media {
+        position: relative;
+        background:
+          linear-gradient(180deg, rgba(11, 22, 63, 0.02) 0%, var(--color-bg) 100%);
+        aspect-ratio: 5 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        border-bottom: 1px solid var(--color-border);
+        overflow: hidden;
+      }
+      .sol-card__media::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image:
+          linear-gradient(to right, rgba(11, 22, 63, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(11, 22, 63, 0.04) 1px, transparent 1px);
+        background-size: 24px 24px;
+        mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+        -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+      }
+      .sol-card__media img {
+        max-width: 70%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        position: relative;
+        z-index: 1;
+        transition: transform var(--duration-slow) var(--ease-out);
+      }
+      .sol-card:hover .sol-card__media img {
+        transform: scale(1.06) translateY(-2px);
+      }
+      .sol-card__num {
+        position: absolute;
+        top: 14px;
+        inset-inline-end: 14px;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        color: var(--color-muted);
+        background: rgba(255, 255, 255, 0.7);
+        padding: 4px 8px;
+        border-radius: var(--radius-sm);
+        z-index: 2;
+      }
+
+      .sol-card__body {
+        padding: 22px 24px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+      }
       .sol-card__head {
         display: flex;
         align-items: center;
@@ -97,18 +166,16 @@ import { IconComponent } from '../../icon/icon.component';
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 44px;
-        height: 44px;
-        border-radius: var(--radius-md);
-        background: var(--color-navy-soft);
-        color: var(--color-navy);
-        transition:
-          background var(--duration-base) var(--ease-out),
-          color var(--duration-base) var(--ease-out);
+        width: 32px;
+        height: 32px;
+        border-radius: var(--radius-sm);
+        background: var(--color-amber-soft);
+        color: var(--color-amber);
+        transition: all var(--duration-base) var(--ease-out);
       }
       .sol-card:hover .sol-card__icon {
-        background: var(--color-navy);
-        color: var(--color-amber);
+        background: var(--color-amber);
+        color: #ffffff;
       }
       .sol-card__cat {
         font-family: var(--font-mono);
@@ -118,13 +185,6 @@ import { IconComponent } from '../../icon/icon.component';
         text-transform: uppercase;
         color: var(--color-amber-2);
       }
-      .sol-card__num {
-        margin-inline-start: auto;
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--color-muted);
-        letter-spacing: 0.05em;
-      }
 
       .sol-card__title {
         font-size: 1.2rem;
@@ -132,11 +192,10 @@ import { IconComponent } from '../../icon/icon.component';
         font-weight: 600;
         color: var(--color-navy);
         text-wrap: balance;
-        margin-top: 4px;
       }
       .sol-card__tagline {
         color: var(--color-text-soft);
-        font-size: 14.5px;
+        font-size: 14px;
         line-height: 1.55;
         flex: 1;
       }
@@ -146,26 +205,23 @@ import { IconComponent } from '../../icon/icon.component';
         align-items: center;
         gap: 8px;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 13.5px;
         color: var(--color-navy);
-        margin-top: 8px;
+        margin-top: 6px;
       }
       .sol-card__arrow {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
         background: var(--color-navy-soft);
-        transition:
-          transform var(--duration-base) var(--ease-out),
-          background var(--duration-base) var(--ease-out),
-          color var(--duration-base) var(--ease-out);
+        transition: all var(--duration-base) var(--ease-out);
       }
       .sol-card:hover .sol-card__arrow {
         background: var(--color-amber);
-        color: var(--color-navy);
+        color: #ffffff;
         transform: translate(2px, -2px);
       }
       html[dir='rtl'] .sol-card:hover .sol-card__arrow {

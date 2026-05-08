@@ -8,7 +8,8 @@ export class SeoService {
   private readonly document = inject(DOCUMENT);
 
   set({ title, description, image }: { title: string; description?: string; image?: string }): void {
-    const fullTitle = title.includes('TenxERP') ? title : `${title} — TenxERP`;
+    const brand = 'Tenx IT Solutions';
+    const fullTitle = title.includes(brand) || title.includes('TenxERP') ? title : `${title} | ${brand}`;
     this.title.setTitle(fullTitle);
 
     if (description) {

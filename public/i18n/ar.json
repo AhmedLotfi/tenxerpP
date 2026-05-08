@@ -1,8 +1,9 @@
 {
   "brand": {
-    "name": "TenxERP",
-    "tagline": "تخطيط موارد المؤسسات، بأناقة.",
-    "by": "من Tenx IT Solutions"
+    "name": "Tenx IT Solutions",
+    "product": "TenxERP",
+    "tagline": "أعمال أذكى — تخطيط موارد المؤسسات، بأناقة.",
+    "by": "Tenx IT Solutions"
   },
   "nav": {
     "home": "الرئيسية",
