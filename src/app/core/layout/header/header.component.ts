@@ -41,13 +41,6 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
             <span class="hdr__lang-label">{{ 'lang.switchTo' | translate }}</span>
           </button>
 
-          <a class="hdr__icon-btn hdr__cart" routerLink="/Home/Cart" [attr.aria-label]="'nav.cart' | translate">
-            <app-icon name="shopping-cart" [size]="18" />
-            @if (cartCount() > 0) {
-              <span class="hdr__cart-badge">{{ cartCount() }}</span>
-            }
-          </a>
-
           <ui-button class="hdr__cta" link="/contact" variant="primary" size="sm" icon="arrow-right">
             {{ 'nav.getStarted' | translate }}
           </ui-button>
@@ -98,16 +91,42 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
         inset-inline: 0;
         z-index: 90;
         height: var(--header-height);
-        background: rgba(248, 250, 252, 0.7);
-        backdrop-filter: saturate(140%) blur(14px);
-        -webkit-backdrop-filter: saturate(140%) blur(14px);
+        background: transparent;
+        -webkit-backdrop-filter: saturate(140%) blur(0px);
+        backdrop-filter: saturate(140%) blur(0px);
         border-bottom: 1px solid transparent;
-        transition: all var(--duration-base) var(--ease-out);
+        transition:
+          background var(--duration-base) var(--ease-out),
+          backdrop-filter var(--duration-base) var(--ease-out),
+          border-color var(--duration-base) var(--ease-out),
+          box-shadow var(--duration-base) var(--ease-out);
       }
       .hdr.is-scrolled {
-        background: rgba(255, 255, 255, 0.92);
+        background: rgba(255, 255, 255, 0.94);
+        -webkit-backdrop-filter: saturate(140%) blur(14px);
+        backdrop-filter: saturate(140%) blur(14px);
         border-bottom-color: var(--color-border);
         box-shadow: var(--shadow-xs);
+      }
+      /* Initial (top of page, dark hero behind): white text */
+      .hdr:not(.is-scrolled) .hdr__link {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .hdr:not(.is-scrolled) .hdr__link:hover,
+      .hdr:not(.is-scrolled) .hdr__link.is-active {
+        color: #ffffff;
+      }
+      .hdr:not(.is-scrolled) .hdr__icon-btn {
+        color: #ffffff;
+      }
+      .hdr:not(.is-scrolled) .hdr__icon-btn:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .hdr:not(.is-scrolled) .hdr__menu-btn {
+        color: #ffffff;
+      }
+      .hdr:not(.is-scrolled) .hdr__logo {
+        filter: brightness(0) invert(1);
       }
       .hdr__inner {
         height: 100%;
