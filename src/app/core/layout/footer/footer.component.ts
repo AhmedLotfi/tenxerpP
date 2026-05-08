@@ -96,11 +96,26 @@ import { IconComponent } from '../../../shared/icon/icon.component';
         display: block;
       }
       .ftr {
-        background: var(--color-navy);
+        position: relative;
+        isolation: isolate;
+        background:
+          linear-gradient(135deg, rgba(11, 22, 63, 0.96) 0%, rgba(37, 37, 92, 0.92) 100%),
+          url('/images/footer-tenx-bg.png') no-repeat center center / cover;
         color: rgba(255, 255, 255, 0.78);
-        padding-top: 88px;
+        padding-top: 96px;
         padding-bottom: 24px;
         margin-top: 64px;
+        overflow: hidden;
+      }
+      .ftr::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          radial-gradient(closest-side at 90% 10%, rgba(237, 28, 58, 0.22), transparent 50%),
+          radial-gradient(closest-side at 5% 95%, rgba(7, 119, 101, 0.18), transparent 60%);
+        pointer-events: none;
       }
       .ftr__top {
         display: grid;
