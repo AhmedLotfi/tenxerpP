@@ -51,7 +51,7 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
       <div class="container-x">
         <div class="story" appReveal>
           <div class="story__col">
-            <app-section-eyebrow label="Our story" [index]="3" />
+            <app-section-eyebrow label="Our story" />
           </div>
           <div class="story__col story__col--body">
             <p>{{ 'about.story' | translate }}</p>
@@ -74,7 +74,7 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
     <section class="section">
       <div class="container-x">
         <header class="section-head" appReveal>
-          <app-section-eyebrow [label]="'about.teamTitle' | translate" [index]="4" />
+          <app-section-eyebrow [label]="'about.teamTitle' | translate" />
           <h2 class="section-head__title">{{ 'about.teamSubtitle' | translate }}</h2>
         </header>
 

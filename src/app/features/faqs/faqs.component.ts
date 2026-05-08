@@ -38,7 +38,7 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
       <div class="container-x">
         <div class="faqs-grid" appReveal>
           <aside class="faqs-side">
-            <app-section-eyebrow label="Categories" [index]="1" />
+            <app-section-eyebrow label="Categories" />
             <ul class="faqs-cats">
               <li>
                 <button

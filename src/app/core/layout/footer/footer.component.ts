@@ -112,24 +112,12 @@ import { IconComponent } from '../../../shared/icon/icon.component';
       .ftr__brand {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        color: white;
       }
-      .ftr__brand-mark {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.08);
-        color: var(--color-amber);
-      }
-      .ftr__brand-name {
-        font-family: var(--font-display);
-        font-size: 1.25rem;
-        letter-spacing: -0.025em;
-        font-weight: 700;
+      .ftr__logo {
+        height: 48px;
+        width: auto;
+        object-fit: contain;
+        display: block;
       }
       .ftr__tagline {
         margin-top: 16px;
