@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit, computed, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -28,7 +27,6 @@ type SolFilter = 'all' | 'module' | 'industry';
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    RouterLink,
     TranslateModule,
     SectionEyebrowComponent,
     SolutionCardComponent,

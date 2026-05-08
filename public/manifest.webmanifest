@@ -4,14 +4,14 @@
   "description": "Modern modular ERP — finance, inventory, HR, manufacturing, CRM and more.",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#0E2A47",
-  "background_color": "#F8FAFC",
+  "theme_color": "#25255C",
+  "background_color": "#FFFFFF",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "/favicon.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

@@ -80,7 +80,7 @@ let selectId = 0;
       select:focus-visible {
         outline: none;
         border-color: var(--color-amber);
-        box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.16);
+        box-shadow: 0 0 0 4px rgba(7, 119, 101, 0.16);
       }
       app-icon {
         position: absolute;
