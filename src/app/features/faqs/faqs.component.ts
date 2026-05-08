@@ -188,9 +188,30 @@ export class FaqsComponent implements OnInit {
 
   ngOnInit(): void {
     this.translate.get(['faqs.title', 'faqs.subtitle']).subscribe((vals: Record<string, string>) => {
-      this.seo.set({ title: vals['faqs.title'] + ' — TenxERP', description: vals['faqs.subtitle'] });
+      this.seo.set({
+        title: vals['faqs.title'] + ' — Tenx IT Solutions',
+        description: vals['faqs.subtitle'],
+        path: '/faqs',
+        keywords: 'TenxERP FAQ, ERP pricing questions, ERP deployment time, ERP security GDPR',
+      });
     });
-    this.faqService.list().subscribe((f) => this.faqs.set(f));
+    this.faqService.list().subscribe((f) => {
+      this.faqs.set(f);
+      this.seo.set({
+        title: 'FAQs — Tenx IT Solutions',
+        description: 'Common questions about TenxERP — pricing, deployment, security, integrations and support.',
+        path: '/faqs',
+        jsonLd: {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          'mainEntity': f.map((q) => ({
+            '@type': 'Question',
+            'name': q.question,
+            'acceptedAnswer': { '@type': 'Answer', 'text': q.answer },
+          })),
+        },
+      });
+    });
   }
 
   setCategory(c: Faq['category'] | 'all'): void {

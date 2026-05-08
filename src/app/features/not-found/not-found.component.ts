@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { Meta } from '@angular/platform-browser';
 import { UiButtonComponent } from '../../shared/components/ui-button/ui-button.component';
 
 @Component({
@@ -53,4 +54,10 @@ import { UiButtonComponent } from '../../shared/components/ui-button/ui-button.c
     `,
   ],
 })
-export class NotFoundComponent {}
+export class NotFoundComponent implements OnInit {
+  private readonly meta = inject(Meta);
+
+  ngOnInit(): void {
+    this.meta.updateTag({ name: 'robots', content: 'noindex, follow' });
+  }
+}

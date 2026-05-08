@@ -305,7 +305,21 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.translate.get(['about.title', 'about.lead']).subscribe((vals: Record<string, string>) => {
-      this.seo.set({ title: vals['about.title'] + ' — TenxERP', description: vals['about.lead'] });
+      this.seo.set({
+        title: vals['about.title'] + ' — Tenx IT Solutions',
+        description: vals['about.lead'],
+        path: '/about',
+        image: '/images/about-us.jpg',
+        keywords: 'about Tenx IT Solutions, TenxERP team, ERP company Karachi, mission vision',
+        jsonLd: {
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          'name': 'About Tenx IT Solutions',
+          'description': vals['about.lead'],
+          'url': 'https://tenxerp.com/about',
+          'mainEntity': { '@id': 'https://tenxerp.com/#organization' },
+        },
+      });
     });
     this.teamService.list().subscribe((t) => this.team.set(t));
   }

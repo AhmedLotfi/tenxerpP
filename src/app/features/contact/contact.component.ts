@@ -290,7 +290,20 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.translate.get(['contact.title', 'contact.lead', 'contact.form.interestOptions.demo', 'contact.form.interestOptions.pricing', 'contact.form.interestOptions.migration', 'contact.form.interestOptions.partnership']).subscribe((vals: Record<string, string>) => {
-      this.seo.set({ title: vals['contact.title'] + ' — TenxERP', description: vals['contact.lead'] });
+      this.seo.set({
+        title: vals['contact.title'] + ' — Tenx IT Solutions',
+        description: vals['contact.lead'],
+        path: '/contact',
+        keywords: 'contact Tenx IT Solutions, ERP demo request, TenxERP sales, ERP migration support',
+        jsonLd: {
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          'name': 'Contact Tenx IT Solutions',
+          'description': vals['contact.lead'],
+          'url': 'https://tenxerp.com/contact',
+          'mainEntity': { '@id': 'https://tenxerp.com/#organization' },
+        },
+      });
       this.interestOptions.set([
         { value: 'demo', label: vals['contact.form.interestOptions.demo'] },
         { value: 'pricing', label: vals['contact.form.interestOptions.pricing'] },

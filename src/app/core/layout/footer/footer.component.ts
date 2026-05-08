@@ -124,11 +124,32 @@ import { IconComponent } from '../../../shared/icon/icon.component';
         display: block;
       }
       .ftr {
-        background: var(--color-navy);
+        position: relative;
+        isolation: isolate;
+        background:
+          linear-gradient(
+            115deg,
+            rgba(11, 22, 63, 0.94) 0%,
+            rgba(37, 37, 92, 0.86) 55%,
+            rgba(11, 22, 63, 0.7) 100%
+          ),
+          url('/images/footer-tenx-bg.png') no-repeat right center / cover;
         color: rgba(255, 255, 255, 0.74);
         padding-top: 80px;
         padding-bottom: 28px;
         margin-top: 96px;
+        overflow: hidden;
+      }
+      /* Subtle teal glow on the image side, no noise/animation */
+      .ftr::before {
+        content: '';
+        position: absolute;
+        inset: auto -10% -20% auto;
+        width: 60%;
+        height: 70%;
+        z-index: -1;
+        background: radial-gradient(closest-side, rgba(7, 119, 101, 0.12), transparent 70%);
+        pointer-events: none;
       }
 
       .ftr__top {

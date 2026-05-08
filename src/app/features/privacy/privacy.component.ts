@@ -129,6 +129,11 @@ export class PrivacyComponent implements OnInit {
   private readonly seo = inject(SeoService);
 
   ngOnInit(): void {
-    this.seo.set({ title: 'Privacy policy', description: 'How TenxERP handles your information.' });
+    this.seo.set({
+      title: 'Privacy policy — Tenx IT Solutions',
+      description:
+        'How Tenx IT Solutions and TenxERP handle your information — what we collect, how we use it, and your rights.',
+      path: '/privacy-policy',
+    });
   }
 }

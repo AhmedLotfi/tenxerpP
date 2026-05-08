@@ -80,6 +80,9 @@ export class HomeComponent implements OnInit {
       this.seo.set({
         title: 'Tenx IT Solutions | TenxERP — Smarter Business',
         description: vals['hero.subtitle'],
+        path: '/',
+        image: '/images/banner.jpg',
+        keywords: 'ERP software, enterprise resource planning, TenxERP, finance, inventory, HR payroll, CRM, manufacturing, business intelligence',
       });
     });
 

@@ -416,8 +416,32 @@ export class SolutionDetailComponent implements OnInit {
           this.solution.set(s);
           this.seo.set({
             title: `${s.title} — TenxERP`,
-            description: s.tagline,
+            description: `${s.tagline} ${s.description.slice(0, 140)}`,
+            path: `/Home/Solutioninner/${s.id}`,
             image: s.heroImage,
+            type: 'product',
+            keywords: `${s.title}, TenxERP ${s.title}, ${s.category} ERP, ${s.title.toLowerCase()} software`,
+            jsonLd: {
+              '@context': 'https://schema.org',
+              '@type': 'Product',
+              'name': `TenxERP ${s.title}`,
+              'description': s.description,
+              'image': `https://tenxerp.com${s.heroImage.startsWith('/') ? '' : '/'}${s.heroImage}`,
+              'category': s.category === 'industry' ? 'Industry ERP Solution' : 'ERP Module',
+              'brand': { '@type': 'Brand', 'name': 'TenxERP' },
+              'offers': {
+                '@type': 'Offer',
+                'price': s.pricePerSeat,
+                'priceCurrency': 'USD',
+                'availability': 'https://schema.org/InStock',
+                'priceSpecification': {
+                  '@type': 'UnitPriceSpecification',
+                  'price': s.pricePerSeat,
+                  'priceCurrency': 'USD',
+                  'unitText': 'per seat per month',
+                },
+              },
+            },
           });
           window.scrollTo({ top: 0, behavior: 'smooth' });
         },
