@@ -3,22 +3,28 @@
   <img src="images/banner.jpg" alt="" class="hero__bg" loading="eager" fetchpriority="high" />
   <div class="hero__scrim" aria-hidden="true"></div>
   <div class="container-x hero__inner">
-    <div class="hero-enter">
-      <span class="hero__eyebrow eyebrow">{{ 'hero.eyebrow' | translate }}</span>
-      <h1 class="hero__title">{{ 'hero.title' | translate }}</h1>
-      <p class="hero__sub lead">{{ 'hero.subtitle' | translate }}</p>
-      <div class="hero__cta">
-        <ui-button link="/" variant="primary" size="lg" icon="arrow-right">
-          {{ 'hero.cta' | translate }}
-        </ui-button>
-        <ui-button link="/contact" variant="ghost" size="lg" icon="arrow-up-right">
-          {{ 'hero.ctaSecondary' | translate }}
-        </ui-button>
+    <div class="hero__grid">
+      <div class="hero-enter">
+        <span class="hero__eyebrow eyebrow">{{ 'hero.eyebrow' | translate }}</span>
+        <h1 class="hero__title">{{ 'hero.title' | translate }}</h1>
+        <p class="hero__sub lead">{{ 'hero.subtitle' | translate }}</p>
+        <div class="hero__cta">
+          <ui-button link="/" variant="primary" size="lg" icon="arrow-right">
+            {{ 'hero.cta' | translate }}
+          </ui-button>
+          <ui-button link="/contact" variant="ghost" size="lg" icon="arrow-up-right">
+            {{ 'hero.ctaSecondary' | translate }}
+          </ui-button>
+        </div>
+        <div class="hero__pills">
+          <span class="hero__pill"><app-icon name="check" [size]="14" /> {{ 'hero.stat1' | translate }}</span>
+          <span class="hero__pill"><app-icon name="check" [size]="14" /> {{ 'hero.stat2' | translate }}</span>
+          <span class="hero__pill"><app-icon name="check" [size]="14" /> {{ 'hero.stat3' | translate }}</span>
+        </div>
       </div>
-      <div class="hero__pills">
-        <span class="hero__pill"><app-icon name="check" [size]="14" /> {{ 'hero.stat1' | translate }}</span>
-        <span class="hero__pill"><app-icon name="check" [size]="14" /> {{ 'hero.stat2' | translate }}</span>
-        <span class="hero__pill"><app-icon name="check" [size]="14" /> {{ 'hero.stat3' | translate }}</span>
+
+      <div class="hero__frame" aria-hidden="true">
+        <img src="images/frame.png" alt="" class="hero__frame-img" loading="eager" fetchpriority="high" />
       </div>
     </div>
 
