@@ -42,10 +42,10 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
                 <p class="lead detail-hero__sub">{{ s.tagline }}</p>
                 <div class="detail-hero__cta">
                   <ui-button link="/contact" variant="primary" size="lg" icon="arrow-right">
-                    Request a quote
+                    {{ 'solutionDetail.requestQuote' | translate }}
                   </ui-button>
                   <ui-button link="/contact" variant="ghost" size="lg" icon="arrow-up-right">
-                    Book a demo
+                    {{ 'solutionDetail.bookDemo' | translate }}
                   </ui-button>
                 </div>
               </div>
@@ -73,11 +73,11 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
           <div class="container-x">
             <div class="detail-body" appReveal>
               <div class="detail-body__col detail-body__col--main">
-                <h2 class="detail-body__h2">Overview</h2>
+                <h2 class="detail-body__h2">{{ 'solutionDetail.overview' | translate }}</h2>
                 <p class="detail-body__lead">{{ s.description }}</p>
               </div>
               <div class="detail-body__col detail-body__col--side">
-                <span class="numeral-prefix">Highlights</span>
+                <span class="numeral-prefix">{{ 'solutionDetail.highlights' | translate }}</span>
                 <ul class="detail-benefits">
                   @for (b of s.benefits; track b) {
                     <li>
@@ -97,8 +97,10 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
         <section class="section section--tight detail-features">
           <div class="container-x">
             <header class="section-head" appReveal>
-              <span class="eyebrow">Capabilities</span>
-              <h2 class="section-head__title">Everything in {{ s.title }}.</h2>
+              <span class="eyebrow">{{ 'solutionDetail.capabilities' | translate }}</span>
+              <h2 class="section-head__title">
+                {{ 'solutionDetail.everythingIn' | translate: { name: s.title } }}
+              </h2>
             </header>
 
             <ul class="detail-features__grid reveal-stagger" appReveal>

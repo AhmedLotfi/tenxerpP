@@ -54,7 +54,7 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
       <div class="container-x">
         <div class="story" appReveal>
           <div class="story__col">
-            <app-section-eyebrow label="Our story" />
+            <app-section-eyebrow [label]="'about.storyEyebrow' | translate" />
           </div>
           <div class="story__col story__col--body">
             <p>{{ 'about.story' | translate }}</p>
@@ -66,10 +66,10 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
     <section class="section section--tight stats-strip">
       <div class="container-x">
         <div class="stats-grid" appReveal>
-          <app-stat-counter [value]="2014" label="Founded" />
-          <app-stat-counter [value]="200" suffix="+" label="Employees worldwide" />
-          <app-stat-counter [value]="1200" suffix="+" label="Active deployments" />
-          <app-stat-counter [value]="24" label="Countries served" />
+          <app-stat-counter [value]="2014" [label]="'about.statFounded' | translate" />
+          <app-stat-counter [value]="200" suffix="+" [label]="'about.statEmployees' | translate" />
+          <app-stat-counter [value]="1200" suffix="+" [label]="'about.statDeployments' | translate" />
+          <app-stat-counter [value]="24" [label]="'about.statCountries' | translate" />
         </div>
       </div>
     </section>

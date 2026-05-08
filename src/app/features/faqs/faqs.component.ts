@@ -38,23 +38,25 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
       <div class="container-x">
         <div class="faqs-grid" appReveal>
           <aside class="faqs-side">
-            <app-section-eyebrow label="Categories" />
+            <app-section-eyebrow [label]="'faqsPage.categoriesEyebrow' | translate" />
             <ul class="faqs-cats">
               <li>
                 <button
+                  type="button"
                   [class.is-active]="category() === 'all'"
                   (click)="setCategory('all')"
                 >
-                  All ({{ faqs().length }})
+                  {{ 'faqsPage.all' | translate }} ({{ faqs().length }})
                 </button>
               </li>
               @for (cat of categories(); track cat.key) {
                 <li>
                   <button
+                    type="button"
                     [class.is-active]="category() === cat.key"
                     (click)="setCategory(cat.key)"
                   >
-                    {{ cat.label }} ({{ cat.count }})
+                    {{ 'faqsPage.' + cat.key | translate }} ({{ cat.count }})
                   </button>
                 </li>
               }
@@ -65,9 +67,9 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
             <ui-accordion [items]="accordionItems()" />
 
             <div class="faqs-after">
-              <p>Still have questions?</p>
+              <p>{{ 'faqsPage.stillQuestions' | translate }}</p>
               <ui-button link="/contact" variant="navy" size="md" icon="arrow-right">
-                Talk to our team
+                {{ 'faqsPage.talkToUs' | translate }}
               </ui-button>
             </div>
           </div>

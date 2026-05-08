@@ -83,7 +83,7 @@
     "secondary": "Talk to sales"
   },
   "about": {
-    "eyebrow": "About TenxERP",
+    "eyebrow": "About Tenx IT Solutions",
     "title": "Software made for the way real companies run.",
     "lead": "We are Tenx IT Solutions — a team of engineers, accountants, supply-chain veterans and product designers who believed enterprise software didn't have to feel like enterprise software.",
     "missionTitle": "Mission",
@@ -91,8 +91,13 @@
     "visionTitle": "Vision",
     "visionBody": "A future where every business — from a 12-person workshop to a 12,000-person enterprise — runs on the same caliber of software.",
     "story": "Founded in 2014, TenxERP started as a single payroll module built for a manufacturer who'd outgrown spreadsheets. Eleven years later we're a full ERP platform deployed across 24 countries — but every line of code still answers to the same question: does this make a real person's day better?",
+    "storyEyebrow": "Our story",
     "teamTitle": "The people building it",
-    "teamSubtitle": "Engineers, designers and operators who care about how work actually feels."
+    "teamSubtitle": "Engineers, designers and operators who care about how work actually feels.",
+    "statFounded": "Founded",
+    "statEmployees": "Employees worldwide",
+    "statDeployments": "Active deployments",
+    "statCountries": "Countries served"
   },
   "contact": {
     "eyebrow": "Talk to us",
@@ -158,7 +163,10 @@
     "tagline": "Enterprise resource planning, refined.",
     "navigate": "Navigate",
     "solutions": "Solutions",
+    "modules": "Modules",
+    "industries": "Industries",
     "company": "Company",
+    "contact": "Contact",
     "legal": "Legal",
     "newsletter": "Stay in the loop",
     "newsletterHint": "Quarterly product notes. No spam, ever.",
@@ -167,7 +175,40 @@
     "rights": "All rights reserved.",
     "privacyPolicy": "Privacy policy",
     "terms": "Terms",
-    "cookies": "Cookies"
+    "cookies": "Cookies",
+    "ctaEye": "Ready when you are",
+    "ctaTitle": "Your operations,<br />on one screen.",
+    "ctaSub": "Book a 30-minute walkthrough. We'll seed a sandbox with your industry's data before the call ends.",
+    "ctaPrimary": "Book a demo",
+    "ctaSecondary": "Talk to sales",
+    "stat1Lbl": "Deployments",
+    "stat2Lbl": "Countries",
+    "stat3Lbl": "Uptime",
+    "stat4Lbl": "Founded",
+    "since": "Smarter Business since 2014",
+    "addrCity": "Karachi, Pakistan"
+  },
+  "solutionDetail": {
+    "overview": "Overview",
+    "highlights": "Highlights",
+    "capabilities": "Capabilities",
+    "everythingIn": "Everything in {{ name }}.",
+    "requestQuote": "Request a quote",
+    "bookDemo": "Book a demo"
+  },
+  "faqsPage": {
+    "categoriesEyebrow": "Categories",
+    "all": "All",
+    "general": "General",
+    "pricing": "Pricing",
+    "security": "Security",
+    "integration": "Integration",
+    "support": "Support",
+    "stillQuestions": "Still have questions?",
+    "talkToUs": "Talk to our team"
+  },
+  "contactPage": {
+    "directLine": "Direct line"
   },
   "lang": {
     "switchTo": "العربية",

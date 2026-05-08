@@ -117,7 +117,7 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
           </form>
 
           <aside class="contact-info">
-            <app-section-eyebrow label="Direct line" />
+            <app-section-eyebrow [label]="'contactPage.directLine' | translate" />
             <ul class="contact-info__list">
               <li>
                 <span class="contact-info__icon"><app-icon name="map-pin" [size]="18" /></span>
