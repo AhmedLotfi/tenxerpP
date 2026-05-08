@@ -85,7 +85,9 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
           @for (m of team(); track m.id) {
             <article class="team">
               <div class="team__photo-wrap">
-                <img [src]="m.photo" [alt]="m.name" loading="lazy" width="320" height="320" />
+                <span class="team__initials" [style.background]="teamColor(m.id)">
+                  {{ teamInitials(m.name) }}
+                </span>
               </div>
               <div class="team__body">
                 <h3 class="team__name">{{ m.name }}</h3>
@@ -242,15 +244,35 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
         overflow: hidden;
         border-radius: var(--radius-xl);
         background: var(--color-navy-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        isolation: isolate;
       }
-      .team__photo-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      .team__photo-wrap::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.18), transparent 50%),
+          radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.06), transparent 50%);
+        z-index: 1;
+      }
+      .team__initials {
+        position: relative;
+        z-index: 2;
+        font-family: var(--font-display);
+        font-size: clamp(2.6rem, 5vw, 3.6rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+        line-height: 1;
+        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
         transition: transform 600ms var(--ease-out);
       }
-      .team:hover .team__photo-wrap img {
-        transform: scale(1.04);
+      .team:hover .team__initials {
+        transform: scale(1.08);
       }
       .team__name {
         font-size: 1.2rem;
@@ -296,12 +318,30 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
     `,
   ],
 })
+const TEAM_COLORS = ['#25255C', '#ED1C3A', '#077765', '#1D1D4A', '#0B163F', '#3A3A78'];
+
 export class AboutComponent implements OnInit {
   private readonly teamService = inject(TeamService);
   private readonly seo = inject(SeoService);
   private readonly translate = inject(TranslateService);
 
   readonly team = signal<TeamMember[]>([]);
+
+  teamInitials(name: string): string {
+    return name
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((p) => p[0])
+      .join('')
+      .toUpperCase();
+  }
+
+  teamColor(id: string): string {
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) | 0;
+    return TEAM_COLORS[Math.abs(hash) % TEAM_COLORS.length];
+  }
 
   ngOnInit(): void {
     this.translate.get(['about.title', 'about.lead']).subscribe((vals: Record<string, string>) => {

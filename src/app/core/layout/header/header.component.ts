@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ChangeDetectionStrategy, Component, HostListener, computed, inject, signal } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map, startWith } from 'rxjs/operators';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LangService } from '../../i18n/lang.service';
 import { IconComponent } from '../../../shared/icon/icon.component';
@@ -10,7 +12,7 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, RouterLinkActive, TranslatePipe, IconComponent, UiButtonComponent],
   template: `
-    <header class="hdr" [class.is-scrolled]="scrolled()" [class.is-open]="menuOpen()">
+    <header class="hdr" [class.is-scrolled]="scrolled()" [class.is-home]="isHome()" [class.is-open]="menuOpen()">
       <div class="container-x hdr__inner">
         <a class="hdr__brand" routerLink="/" aria-label="TenxERP home">
           <img src="images/tenx-logo.png" alt="TenxERP" class="hdr__logo" width="124" height="42" />
@@ -84,41 +86,43 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
         inset-inline: 0;
         z-index: 90;
         height: var(--header-height);
-        background: transparent;
-        -webkit-backdrop-filter: saturate(140%) blur(0px);
-        backdrop-filter: saturate(140%) blur(0px);
-        border-bottom: 1px solid transparent;
-        transition:
-          background var(--duration-base) var(--ease-out),
-          backdrop-filter var(--duration-base) var(--ease-out),
-          border-color var(--duration-base) var(--ease-out),
-          box-shadow var(--duration-base) var(--ease-out);
-      }
-      .hdr.is-scrolled {
+        /* Default: solid white surface for non-home pages */
         background: rgba(255, 255, 255, 0.94);
         -webkit-backdrop-filter: saturate(140%) blur(14px);
         backdrop-filter: saturate(140%) blur(14px);
-        border-bottom-color: var(--color-border);
+        border-bottom: 1px solid var(--color-border);
         box-shadow: var(--shadow-xs);
+        transition:
+          background var(--duration-base) var(--ease-out),
+          border-color var(--duration-base) var(--ease-out),
+          box-shadow var(--duration-base) var(--ease-out);
       }
-      /* Initial (top of page, dark hero behind): white text */
-      .hdr:not(.is-scrolled) .hdr__link {
+      /* On the home page above the dark hero: transparent until scrolled */
+      .hdr.is-home:not(.is-scrolled) {
+        background: transparent;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        border-bottom-color: transparent;
+        box-shadow: none;
+      }
+      /* Home + not scrolled: white text over the dark photo hero */
+      .hdr.is-home:not(.is-scrolled) .hdr__link {
         color: rgba(255, 255, 255, 0.9);
       }
-      .hdr:not(.is-scrolled) .hdr__link:hover,
-      .hdr:not(.is-scrolled) .hdr__link.is-active {
+      .hdr.is-home:not(.is-scrolled) .hdr__link:hover,
+      .hdr.is-home:not(.is-scrolled) .hdr__link.is-active {
         color: #ffffff;
       }
-      .hdr:not(.is-scrolled) .hdr__icon-btn {
+      .hdr.is-home:not(.is-scrolled) .hdr__icon-btn {
         color: #ffffff;
       }
-      .hdr:not(.is-scrolled) .hdr__icon-btn:hover {
+      .hdr.is-home:not(.is-scrolled) .hdr__icon-btn:hover {
         background: rgba(255, 255, 255, 0.12);
       }
-      .hdr:not(.is-scrolled) .hdr__menu-btn {
+      .hdr.is-home:not(.is-scrolled) .hdr__menu-btn {
         color: #ffffff;
       }
-      .hdr:not(.is-scrolled) .hdr__logo {
+      .hdr.is-home:not(.is-scrolled) .hdr__logo {
         filter: brightness(0) invert(1);
       }
       .hdr__inner {
@@ -290,6 +294,21 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
 })
 export class HeaderComponent {
   private readonly langService = inject(LangService);
+  private readonly router = inject(Router);
+
+  /** Tracks the current URL so we can apply transparent header only on the home route. */
+  private readonly url = toSignal(
+    this.router.events.pipe(
+      filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+      map((e) => e.urlAfterRedirects),
+      startWith(this.router.url),
+    ),
+    { initialValue: this.router.url },
+  );
+  protected readonly isHome = computed(() => {
+    const u = this.url();
+    return u === '/' || u === '' || u.startsWith('/?') || u.startsWith('/#');
+  });
 
   protected readonly scrolled = signal<boolean>(false);
   protected readonly menuOpen = signal<boolean>(false);

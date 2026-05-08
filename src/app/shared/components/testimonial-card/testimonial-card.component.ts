@@ -1,5 +1,14 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { Testimonial } from '../../../core/models/testimonial.model';
+
+const AVATAR_PALETTE = [
+  ['#25255C', '#FFFFFF'],
+  ['#ED1C3A', '#FFFFFF'],
+  ['#077765', '#FFFFFF'],
+  ['#0B163F', '#F5C6CD'],
+  ['#1D1D4A', '#FFD4B5'],
+  ['#3A3A78', '#FFFFFF'],
+];
 
 @Component({
   selector: 'app-testimonial-card',
@@ -9,14 +18,14 @@ import { Testimonial } from '../../../core/models/testimonial.model';
       <span class="testimonial__quote-mark" aria-hidden="true">"</span>
       <blockquote class="testimonial__quote">{{ testimonial().quote }}</blockquote>
       <figcaption class="testimonial__caption">
-        <img
-          [src]="testimonial().avatar"
-          [alt]="testimonial().author"
+        <span
           class="testimonial__avatar"
-          width="48"
-          height="48"
-          loading="lazy"
-        />
+          [style.background]="palette()[0]"
+          [style.color]="palette()[1]"
+          aria-hidden="true"
+        >
+          {{ initials() }}
+        </span>
         <div>
           <div class="testimonial__author">{{ testimonial().author }}</div>
           <div class="testimonial__role">
@@ -85,8 +94,14 @@ import { Testimonial } from '../../../core/models/testimonial.model';
         width: 48px;
         height: 48px;
         border-radius: 50%;
-        object-fit: cover;
-        background: var(--color-navy-soft);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
       }
       .testimonial__author {
         font-weight: 600;
@@ -102,4 +117,24 @@ import { Testimonial } from '../../../core/models/testimonial.model';
 })
 export class TestimonialCardComponent {
   readonly testimonial = input.required<Testimonial>();
+
+  readonly initials = computed(() => {
+    const name = this.testimonial().author;
+    return name
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((p) => p[0])
+      .join('')
+      .toUpperCase();
+  });
+
+  readonly palette = computed<readonly [string, string]>(() => {
+    // Stable hash from id so each testimonial keeps the same palette across renders.
+    const id = this.testimonial().id;
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) | 0;
+    const idx = Math.abs(hash) % AVATAR_PALETTE.length;
+    return AVATAR_PALETTE[idx] as [string, string];
+  });
 }
