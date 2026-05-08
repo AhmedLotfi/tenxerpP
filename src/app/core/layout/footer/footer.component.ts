@@ -177,7 +177,7 @@ import { IconComponent } from '../../../shared/icon/icon.component';
       }
       .ftr__news-row button {
         background: var(--color-amber);
-        color: var(--color-navy);
+        color: #ffffff;
         font-weight: 600;
         font-size: 14px;
         padding: 12px 18px;

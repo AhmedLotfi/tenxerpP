@@ -59,17 +59,18 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
               </div>
 
               <div class="detail-hero__visual">
-                <div class="detail-hero__icon-wrap">
-                  <app-icon [name]="s.iconKey" [size]="80" />
-                </div>
+                <span class="detail-hero__cat-tag">
+                  {{ 'common.category.' + s.category | translate }}
+                </span>
                 <img
                   [src]="s.heroImage"
-                  [alt]="s.title"
+                  [alt]="s.title + ' illustration'"
                   class="detail-hero__img"
                   loading="eager"
-                  width="640"
-                  height="400"
+                  width="448"
+                  height="448"
                 />
+                <div class="detail-hero__visual-grid" aria-hidden="true"></div>
               </div>
             </div>
           </div>
@@ -199,27 +200,56 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
         position: relative;
         border-radius: var(--radius-2xl);
         overflow: hidden;
-        background: var(--color-navy);
-        aspect-ratio: 4 / 3;
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        aspect-ratio: 1;
         isolation: isolate;
-      }
-      .detail-hero__icon-wrap {
-        position: absolute;
-        inset: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--color-amber);
-        opacity: 0.95;
-        z-index: 2;
-        text-shadow: 0 8px 28px rgba(245, 158, 11, 0.4);
+        padding: clamp(32px, 5vw, 56px);
+        box-shadow: var(--shadow-lg);
+      }
+      .detail-hero__visual-grid {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image:
+          linear-gradient(to right, rgba(11, 22, 63, 0.04) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(11, 22, 63, 0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+        -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+      }
+      .detail-hero__cat-tag {
+        position: absolute;
+        top: 20px;
+        inset-inline-start: 20px;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--color-navy);
+        background: var(--color-amber-soft);
+        padding: 6px 10px;
+        border-radius: var(--radius-sm);
       }
       .detail-hero__img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.45;
-        mix-blend-mode: luminosity;
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
+        position: relative;
+        z-index: 1;
+        animation: detail-hero-float 6s ease-in-out infinite;
+      }
+      @keyframes detail-hero-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .detail-hero__img { animation: none; }
       }
 
       /* Body */

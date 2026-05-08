@@ -86,16 +86,17 @@ export type UiButtonSize = 'sm' | 'md' | 'lg';
 
       .ui-btn--primary {
         background: var(--color-amber);
-        color: var(--color-navy);
+        color: #ffffff;
         box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.4) inset,
+          0 1px 0 rgba(255, 255, 255, 0.18) inset,
           0 8px 18px rgba(237, 28, 58, 0.28);
       }
       .ui-btn--primary:hover:not(:disabled) {
         background: var(--color-amber-2);
+        color: #ffffff;
         transform: translateY(-2px);
         box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.4) inset,
+          0 1px 0 rgba(255, 255, 255, 0.18) inset,
           0 12px 24px rgba(237, 28, 58, 0.36);
       }
       .ui-btn--primary:active:not(:disabled) {
