@@ -1,6 +1,46 @@
 import { Solution } from '../../models/solution.model';
 
-const img = (id: number) => `https://picsum.photos/seed/tenxerp-${id}/1280/800`;
+/**
+ * Hero illustrations are sourced verbatim from tenxerp.com's Landing-Business assets.
+ * Six base illustrations exist; we map each module to the closest semantic match.
+ */
+const HR = 'images/solutions/HR-Features.png';
+const POWER = 'images/solutions/Powerful-Features.png';
+const CONTRACT = 'images/solutions/Contract-Management.png';
+const FLEET = 'images/solutions/Fleet-Management.png';
+const PROPERTY = 'images/solutions/Property-Solutions.png';
+const RETAIL = 'images/solutions/Retail-Solutions.png';
+
+const HERO: Record<number, string> = {
+  1: POWER,    // Financial Management
+  2: RETAIL,   // Inventory
+  3: RETAIL,   // Sales & Distribution
+  4: CONTRACT, // Purchase & Procurement
+  5: POWER,    // Manufacturing
+  6: FLEET,    // Warehouse Management
+  7: HR,       // HR & Payroll
+  8: HR,       // CRM
+  9: CONTRACT, // Project Management
+  10: FLEET,   // Asset Management
+  11: POWER,   // Quality Management
+  12: HR,      // Service Ticketing
+  13: CONTRACT, // Document Management
+  14: POWER,   // BI
+  15: RETAIL,  // E-Commerce
+  16: POWER,   // Manufacturing Industry
+  17: RETAIL,  // Retail & Distribution
+  18: HR,      // Healthcare
+  19: HR,      // Education
+  20: PROPERTY, // Hospitality
+  21: PROPERTY, // Real Estate
+  22: FLEET,   // Logistics
+  23: POWER,   // Pharma
+  24: POWER,   // Textile
+  25: RETAIL,  // F&B
+  26: POWER,   // IT Industry
+};
+
+const img = (id: number) => HERO[id] ?? POWER;
 
 export const MOCK_SOLUTIONS: Solution[] = [
   {

@@ -1,16 +1,29 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { Client } from '../../../core/models/client.model';
 
+interface ClientLogo {
+  name: string;
+  src: string;
+}
+
+const REAL_LOGOS: ClientLogo[] = [
+  { name: 'RTA', src: 'images/clients/RTA.png' },
+  { name: 'Takaful Emarat', src: 'images/clients/Takaful-Emarat.png' },
+  { name: 'ENOC', src: 'images/clients/ENOC.png' },
+  { name: 'Evolution', src: 'images/clients/Evolution.png' },
+  { name: 'Fujairah Charity', src: 'images/clients/Fujairah-Charity.png' },
+  { name: 'Sharjah City Municipality', src: 'images/clients/Sharjah-City.png' },
+];
+
 @Component({
   selector: 'app-client-marquee',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="marquee-mask">
       <div class="marquee">
-        @for (c of doubled(); track $index) {
-          <div class="marquee__item">
-            <span class="marquee__logo">{{ c.logoText }}</span>
-            <span class="marquee__industry">— {{ c.industry }}</span>
+        @for (l of doubled(); track $index) {
+          <div class="marquee__item" [title]="l.name">
+            <img [src]="l.src" [alt]="l.name" loading="lazy" />
           </div>
         }
       </div>
@@ -21,33 +34,37 @@ import { Client } from '../../../core/models/client.model';
       :host {
         display: block;
       }
-      .marquee__item {
-        display: inline-flex;
-        align-items: baseline;
-        gap: 12px;
-        padding: 8px 0;
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 1.5rem;
-        letter-spacing: -0.025em;
-        color: var(--color-navy);
-        white-space: nowrap;
-        transition: opacity var(--duration-base) var(--ease-out);
+      .marquee {
+        gap: 80px;
+        align-items: center;
       }
-      .marquee__industry {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--color-muted);
+      .marquee__item {
+        flex: 0 0 auto;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.7;
+        filter: grayscale(0.5);
+        transition: all var(--duration-base) var(--ease-out);
+      }
+      .marquee__item:hover {
+        opacity: 1;
+        filter: none;
+      }
+      .marquee__item img {
+        max-height: 100%;
+        max-width: 200px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
       }
     `,
   ],
 })
 export class ClientMarqueeComponent {
-  readonly clients = input.required<Client[]>();
+  // Kept for API parity; real logos are sourced internally.
+  readonly clients = input<Client[]>([]);
 
-  /** Duplicate the list so the loop is seamless */
-  readonly doubled = computed<Client[]>(() => [...this.clients(), ...this.clients()]);
+  readonly doubled = computed<ClientLogo[]>(() => [...REAL_LOGOS, ...REAL_LOGOS]);
 }

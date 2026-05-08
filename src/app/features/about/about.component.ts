@@ -20,12 +20,15 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
     RevealOnScrollDirective,
   ],
   template: `
-    <section class="section section--tight mesh-hero">
-      <div class="container-x">
+    <section class="section section--tight mesh-hero about-hero">
+      <div class="container-x about-hero__grid">
         <div class="hero-enter">
           <span class="eyebrow">{{ 'about.eyebrow' | translate }}</span>
           <h1 class="about-h1">{{ 'about.title' | translate }}</h1>
           <p class="lead about-lead">{{ 'about.lead' | translate }}</p>
+        </div>
+        <div class="about-hero__visual" aria-hidden="true">
+          <img src="images/about-us.jpg" alt="" loading="eager" />
         </div>
       </div>
     </section>
@@ -109,13 +112,35 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
   `,
   styles: [
     `
+      .about-hero__grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 56px;
+        align-items: center;
+      }
+      @media (max-width: 900px) {
+        .about-hero__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .about-hero__visual {
+        aspect-ratio: 5 / 4;
+        border-radius: var(--radius-2xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+      }
+      .about-hero__visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
       .about-h1 {
-        max-width: 880px;
+        max-width: 760px;
         margin-top: 16px;
       }
       .about-lead {
         margin-top: 24px;
-        max-width: 760px;
+        max-width: 640px;
       }
 
       .mv-grid {
