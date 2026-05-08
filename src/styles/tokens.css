@@ -1,9 +1,9 @@
 /*
  * Design tokens — TenxERP marketing site.
- * Palette derived from the live tenxerp.com brand:
- *   primary  #25255C (deep purple-navy)
- *   accent   #077765 (teal)
- *   support  #50b5ff (info blue) for data viz only
+ * Palette derived from the live tenxerp.com logo + brand:
+ *   primary  #25255C (deep navy from the wordmark)
+ *   accent   #ED1C3A (vivid red from the logo mark + tagline)
+ *   support  #077765 (teal flourish, used sparingly)
  */
 
 :root {
@@ -11,11 +11,11 @@
   --color-navy: #25255c; /* primary */
   --color-navy-2: #1d1d4a; /* primary hover */
   --color-navy-soft: #ecedf5;
-  --color-amber: #077765; /* accent / CTA */
-  --color-amber-2: #056354;
-  --color-amber-soft: #d6efe9;
-  --color-cyan: #50b5ff; /* info / illustration accent */
-  --color-cyan-soft: #dff0ff;
+  --color-amber: #ed1c3a; /* accent / CTA — the logo red */
+  --color-amber-2: #c8112c;
+  --color-amber-soft: #fde2e7;
+  --color-cyan: #077765; /* teal — supporting flourish only */
+  --color-cyan-soft: #d6efe9;
 
   /* Neutrals (light) */
   --color-bg: #ffffff;

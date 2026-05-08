@@ -15,12 +15,7 @@ import { IconComponent } from '../../../shared/icon/icon.component';
       <div class="container-x ftr__top">
         <div class="ftr__brand-col">
           <a class="ftr__brand" routerLink="/" aria-label="TenxERP home">
-            <span class="ftr__brand-mark" aria-hidden="true">
-              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
-                <path d="M5 11 L16 5 L27 11 L27 21 L16 27 L5 21 Z"/>
-              </svg>
-            </span>
-            <span class="ftr__brand-name">{{ 'brand.name' | translate }}</span>
+            <img src="images/tenx-logo-white.png" alt="TenxERP" class="ftr__logo" width="148" height="48" />
           </a>
           <p class="ftr__tagline">{{ 'footer.tagline' | translate }}</p>
           <p class="ftr__by">{{ 'brand.by' | translate }}</p>

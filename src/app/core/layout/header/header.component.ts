@@ -14,14 +14,7 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
     <header class="hdr" [class.is-scrolled]="scrolled()" [class.is-open]="menuOpen()">
       <div class="container-x hdr__inner">
         <a class="hdr__brand" routerLink="/" aria-label="TenxERP home">
-          <span class="hdr__brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
-              <path d="M5 11 L16 5 L27 11 L27 21 L16 27 L5 21 Z"/>
-            </svg>
-          </span>
-          <span class="hdr__brand-text">
-            <span class="hdr__brand-name">{{ 'brand.name' | translate }}</span>
-          </span>
+          <img src="images/tenx-logo.png" alt="TenxERP" class="hdr__logo" width="124" height="42" />
         </a>
 
         <nav class="hdr__nav" [attr.aria-label]="'Primary'">
@@ -125,26 +118,14 @@ import { UiButtonComponent } from '../../../shared/components/ui-button/ui-butto
       .hdr__brand {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        color: var(--color-navy);
-        font-weight: 700;
         flex-shrink: 0;
+        height: 42px;
       }
-      .hdr__brand-mark {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        border-radius: 10px;
-        background: var(--color-navy);
-        color: var(--color-amber);
-      }
-      .hdr__brand-name {
-        font-family: var(--font-display);
-        font-size: 1.2rem;
-        letter-spacing: -0.025em;
-        font-weight: 700;
+      .hdr__logo {
+        height: 42px;
+        width: auto;
+        object-fit: contain;
+        display: block;
       }
 
       .hdr__nav {

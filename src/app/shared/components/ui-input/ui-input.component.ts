@@ -72,7 +72,7 @@ let inputId = 0;
       input:focus-visible {
         outline: none;
         border-color: var(--color-amber);
-        box-shadow: 0 0 0 4px rgba(7, 119, 101, 0.16);
+        box-shadow: 0 0 0 4px rgba(237, 28, 58, 0.16);
       }
       input[aria-invalid='true'] {
         border-color: var(--color-danger);

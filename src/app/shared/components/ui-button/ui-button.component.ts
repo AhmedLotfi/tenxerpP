@@ -89,14 +89,14 @@ export type UiButtonSize = 'sm' | 'md' | 'lg';
         color: var(--color-navy);
         box-shadow:
           0 1px 0 rgba(255, 255, 255, 0.4) inset,
-          0 8px 18px rgba(7, 119, 101, 0.25);
+          0 8px 18px rgba(237, 28, 58, 0.28);
       }
       .ui-btn--primary:hover:not(:disabled) {
         background: var(--color-amber-2);
         transform: translateY(-2px);
         box-shadow:
           0 1px 0 rgba(255, 255, 255, 0.4) inset,
-          0 12px 24px rgba(7, 119, 101, 0.32);
+          0 12px 24px rgba(237, 28, 58, 0.36);
       }
       .ui-btn--primary:active:not(:disabled) {
         transform: translateY(0);

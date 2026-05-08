@@ -81,7 +81,7 @@
   height: 720px;
   pointer-events: none;
   z-index: -1;
-  background: radial-gradient(closest-side, rgba(7, 119, 101, 0.18), transparent 70%);
+  background: radial-gradient(closest-side, rgba(237, 28, 58, 0.18), transparent 70%);
   filter: blur(8px);
 }
 .mesh-hero::after {
@@ -92,7 +92,7 @@
   height: 560px;
   pointer-events: none;
   z-index: -1;
-  background: radial-gradient(closest-side, rgba(80, 181, 255, 0.14), transparent 70%);
+  background: radial-gradient(closest-side, rgba(7, 119, 101, 0.14), transparent 70%);
   filter: blur(12px);
 }
 
